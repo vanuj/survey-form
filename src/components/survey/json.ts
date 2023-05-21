@@ -21,21 +21,25 @@ export const json = {
           type: "radiogroup",
           name: "question1",
           title: "Question 1",
+          random:'adada',
           choices: [
             {
-              value: [3, 0],
+              value: {
+                v: [3, 0],
+                isRev: true,
+              },
               text: "I'm usually open to getting to know people personally and establishing relationships with them.",
             },
             {
-              value: [2, 1],
+              value: [2, 1, 1],
               text: "I'm ocasionally open to getting to know people personally and establishing relationships with them.",
             },
             {
-              value: [1, 2],
+              value: [1, 2, 0],
               text: "I'm rarely open to getting to know people personally and establishing relationships with them.",
             },
             {
-              value: [0, 3],
+              value: [0, 3, 1],
               text: "I'm not open to getting to know people personally and establishing relationships",
             },
           ],
