@@ -1,6 +1,7 @@
 import Table from "./Table";
 import { getColumns } from "../../utils/tableUtils";
 import * as S from "./TableReport.style";
+import { Link } from "react-router-dom";
 
 const TableReport = () => {
   const surveyData = localStorage.getItem("surveyData");
@@ -21,6 +22,9 @@ const TableReport = () => {
       <S.TableContainer>
         <Table columns={getColumns(surveyTotalJson)} data={surveyDataJson} />
       </S.TableContainer>
+      <div>
+        <Link to="/chart">See your Result Chart</Link>
+      </div>
     </div>
   );
 };
