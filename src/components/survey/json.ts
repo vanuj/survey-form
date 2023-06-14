@@ -21,6 +21,10 @@ export const json = {
           type: "radiogroup",
           name: "question1",
           title: "Question 1",
+          defaultValue: {
+            v: [3, 0],
+            isRev: false,
+          },
           choices: [
             {
               value: {
@@ -60,6 +64,10 @@ export const json = {
           type: "radiogroup",
           name: "question2",
           title: "Question2",
+          defaultValue: {
+            v: [3, 0],
+            isRev: false,
+          },
           choices: [
             {
               value: {
@@ -99,6 +107,10 @@ export const json = {
           type: "radiogroup",
           name: "question3",
           title: "Question 3",
+          defaultValue: {
+            v: [3, 0],
+            isRev: true,
+          },
           choices: [
             {
               value: {
@@ -138,6 +150,10 @@ export const json = {
           type: "radiogroup",
           name: "question4",
           title: "Question 4",
+          defaultValue: {
+            v: [3, 0],
+            isRev: false,
+          },
           choices: [
             {
               value: {
@@ -177,6 +193,10 @@ export const json = {
           type: "radiogroup",
           name: "question5",
           title: "Question 5",
+          defaultValue: {
+            v: [3, 0],
+            isRev: false,
+          },
           choices: [
             {
               value: {
@@ -216,6 +236,10 @@ export const json = {
           type: "radiogroup",
           name: "question6",
           title: "Question 6",
+          defaultValue: {
+            v: [3, 0],
+            isRev: true,
+          },
           choices: [
             {
               value: {
@@ -255,6 +279,10 @@ export const json = {
           type: "radiogroup",
           name: "question7",
           title: "Question 7",
+          defaultValue: {
+            v: [3, 0],
+            isRev: true,
+          },
           choices: [
             {
               value: {
@@ -294,6 +322,10 @@ export const json = {
           type: "radiogroup",
           name: "question8",
           title: "Question 8",
+          defaultValue: {
+            v: [3, 0],
+            isRev: false,
+          },
           choices: [
             {
               value: {
