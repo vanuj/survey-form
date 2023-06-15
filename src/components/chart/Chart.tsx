@@ -1,65 +1,30 @@
-import React, { useRef, useEffect } from 'react';
-import * as d3 from 'd3';
+
+import { HeaderContainer } from "../../libs/Header";
+import { ContentContainer } from "../../libs/ContentContainer";
+import ChartView from "./ChartView";
+import { convertResultToCoordinate } from "../../utils/chartUtils";
 
 const MagicQuadrantChart = () => {
-    const data = [
-        { x: -3, y: 7 },
-        { x: 1, y: -5 },
-        { x: 6, y: 2 },
-        { x: -4, y: -3 },
-        // Add more data points as needed
-      ];
-  const chartRef = useRef(null);
+  const surveyTotals = localStorage.getItem("surveyTotals")
 
-  useEffect(() => {
-    const chartContainer = d3.select(chartRef.current);
-    if (!chartContainer.select('svg').empty()) {
-      // If chart already exists, remove it
-      chartContainer.select('svg').remove();
-    }
-    
-    // Chart dimensions
-    const width = 600;
-    const height = 400;
+  if (!surveyTotals) {
+    return <div>No Data found!</div>;
+  }
 
-    // Create SVG container using D3
-    const svg = d3.select(chartRef.current)
-      .append('svg')
-      .attr('width', width)
-      .attr('height', height);
+  const surveyTotalJson = JSON.parse(surveyTotals);
 
-    // Define scales for x and y axes
-    const xScale = d3.scaleLinear()
-      .domain([-10, 10])
-      .range([0, width]);
+  const resultCoordinate = convertResultToCoordinate(surveyTotalJson);
 
-    const yScale = d3.scaleLinear()
-      .domain([-10, 10])
-      .range([height, 0]);
-
-    // Add x and y axes
-    svg.append('g')
-      .attr('transform', `translate(0, ${height / 2})`)
-      .call(d3.axisBottom(xScale));
-
-    svg.append('g')
-      .attr('transform', `translate(${width / 2}, 0)`)
-      .call(d3.axisLeft(yScale));
-
-    // Add data points
-    svg.selectAll('.data-point')
-      .data(data)
-      .enter()
-      .append('circle')
-      .attr('class', 'data-point')
-      .attr('cx', (d:any) => xScale(d.x))
-      .attr('cy', (d:any) => yScale(d.y))
-      .attr('r', 5)
-      .style('fill', 'steelblue');
-  }, [data]);
-
+  
   return (
-    <div ref={chartRef}></div>
+    <div>
+      <HeaderContainer className="chart-report-header">
+        Report Table
+      </HeaderContainer>
+      <ContentContainer>
+        <ChartView resultCoordinate={[resultCoordinate]} />
+      </ContentContainer>
+    </div>
   );
 };
 
