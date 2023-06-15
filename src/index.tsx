@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import SurveyComponent from "./components/survey/SurveyComponent";
 import TableReport from "./components/tableReport/TableReport";
+import MagicQuadrantChart from "./components/chart/Chart";
 
 const router = createBrowserRouter([
   {
@@ -10,8 +11,12 @@ const router = createBrowserRouter([
     element: <SurveyComponent />,
   },
   {
-    path: "report",
+    path: "/report",
     element: <TableReport />,
+  },
+  {
+    path: "/chart",
+    element: <MagicQuadrantChart />,
   },
 ]);
 

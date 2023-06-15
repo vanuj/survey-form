@@ -1,6 +1,8 @@
 import Table from "./Table";
 import { getColumns } from "../../utils/tableUtils";
-import * as S from "./TableReport.style";
+import { Link } from "react-router-dom";
+import { HeaderContainer } from "../../libs/Header";
+import { ContentContainer } from "../../libs/ContentContainer";
 
 const TableReport = () => {
   const surveyData = localStorage.getItem("surveyData");
@@ -15,12 +17,15 @@ const TableReport = () => {
 
   return (
     <div>
-      <S.HeaderContainer className="table-report-header">
+      <HeaderContainer className="table-report-header">
         Report Table
-      </S.HeaderContainer>
-      <S.TableContainer>
+      </HeaderContainer>
+      <ContentContainer>
         <Table columns={getColumns(surveyTotalJson)} data={surveyDataJson} />
-      </S.TableContainer>
+      </ContentContainer>
+      <div>
+        <Link to="/chart">See your Result Chart</Link>
+      </div>
     </div>
   );
 };
